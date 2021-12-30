@@ -1,29 +1,55 @@
 {% extends "parent.html" %}
 
+{% from "variables/info.html" import company_short_name %}
+{% from "variables/info.html" import company_full_name %}
+{% from "variables/info.html" import client_companies %}
+{% from "macros/home_info.html" import left_image_info %}
+{% from "macros/home_info.html" import right_image_info %}
+
+
 {% block title %}
-	<title>Homepage - Rokea Chemical Industries</title>
+	<title>RCI Limited - Homepage</title>
+{% endblock %}
+
+{% block header %}
+	<link rel="stylesheet" type="text/css" href="/frontend/slider/tiny-slider.css">
+	<script type="text/javascript" src="/frontend/slider/tiny-slider.js"></script>
 {% endblock %}
 
 {% block body %}
-	<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-	  <div class="carousel-inner">
-	    <div class="carousel-item active">
-	      <img src="/bg1.jpg" class="d-block w-100" alt="...">
-	    </div>
-	    <div class="carousel-item">
-	      <img src="/bg1.jpg" class="d-block w-100" alt="...">
-	    </div>
-	    <div class="carousel-item">
-	      <img src="/bg1.jpg" class="d-block w-100" alt="...">
-	    </div>
-	  </div>
-	  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-	    <span class="visually-hidden">Previous</span>
-	  </button>
-	  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-	    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-	    <span class="visually-hidden">Next</span>
-	  </button>
+
+	<div class="container my-5 pt-4 pb-6">
+		<div class="d-flex flex-column justify-content-center">
+			<h1 class="text-center fw-bold">{{ company_full_name }} <sup>©</sup></h1>
+			<h3 class="text-center">our company at your premisis</h3>
+		</div>
 	</div>
+
+	<div class="my-slider">
+	</div>
+
+	<div class="container-fluid my-5">
+		{% call left_image_info("/content/IMG_3757-min-2048x1365.jpg", "The Zenith of Contract manufacturing") %}
+			Specilized Lab with robust quality control. We deal every task with utmost effort and experience.
+			Morbi vel nibh dignissim, fringilla sem ut, elementum nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce rhoncus dictum augue, eget vehicula risus condimentum eget. Donec elementum dignissim leo, nec finibus ipsum tincidunt sit amet. Phasellus non efficitur nisl. Aenean vitae tempus lectus. Phasellus vitae tristique magna. Cras et dui sem. Suspendisse lacinia odio quam, eget euismod orci bibendum non. Sed ut nulla commodo, accumsan odio ut, rutrum sem.
+		{% endcall %}
+	</div>
+
+	<div class="container-fluid my-5">
+		{% call right_image_info("/content/IMG_4029-min-2048x1365.jpg", "World Class Production Line") %}
+			Specilized Lab with robust quality control. We deal every task with utmost effort and experience.
+			Morbi vel nibh dignissim, fringilla sem ut, elementum nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce rhoncus dictum augue, eget vehicula risus condimentum eget. Donec elementum dignissim leo, nec finibus ipsum tincidunt sit amet. Phasellus non efficitur nisl. Aenean vitae tempus lectus. Phasellus vitae tristique magna. Cras et dui sem. Suspendisse lacinia odio quam, eget euismod orci bibendum non. Sed ut nulla commodo, accumsan odio ut, rutrum sem.
+		{% endcall %}
+	</div>
+
+{% endblock %}
+
+{% block scripts %}
+	<script type="text/javascript">
+		var slider = tns({
+			container: ".my-slider",
+			items: 2,
+			controls: false
+		});
+	</script>
 {% endblock %}
